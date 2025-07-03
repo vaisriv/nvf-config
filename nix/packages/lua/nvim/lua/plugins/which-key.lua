@@ -26,8 +26,13 @@ return {
 			{ "<leader>U", "<cmd>UndotreeToggle<cr>", desc = "[U]ndoTree", hidden = true },
 			{
 				"<leader>i",
+				mode = { "n", "v", "x" },
 				group = "[I]mage",
+				{ "<leader>ip", "<cmd>PasteImage<cr>", desc = "[P]aste image from system clipboard", mode = { "n", "v" } },
 				{ "<leader>io", "<cmd>CarbonNow<cr>", desc = "[O]utput code as image" },
+				-- { "<leader>ic", "<cmd>CodeSnap<cr>", mode = "x", desc = "[C]opy code snapshot to system clipboard" },
+				-- { "<leader>is", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "[S]ave code snapshot as screenshot" },
+				{ "<leader>ia", "<cmd>CodeSnapASCII<cr>", mode = "x", desc = "[A]scii code screenshot" },
 			},
 
 			-- exit neovim with qq

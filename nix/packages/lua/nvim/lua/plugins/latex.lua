@@ -19,7 +19,6 @@ return {
 
 			-- which-key config
 			local wk = require("which-key")
-			wk.setup(opts)
 			wk.add({
 				{
 					"<leader>v",

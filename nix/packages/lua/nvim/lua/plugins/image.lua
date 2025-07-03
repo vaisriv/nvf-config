@@ -39,8 +39,23 @@ return {
 				},
 			},
 		},
-		keys = {
-			{ "<leader>ip", "<cmd>PasteImage<cr>", desc = "[P]aste image from system clipboard" },
+	},
+	{
+		"mistricky/codesnap.nvim",
+		build = "make",
+		opts = {
+			save_path = "$SCREENSHOTS_DIR",
+
+			title = "",
+			watermark = "",
+
+			bg_theme = "summer",
+			code_font_family = "IosevkaTerm Nerd Font",
+
+			mac_window_bar = false,
+			has_breadcrumbs = true,
+			has_line_number = true,
+			show_workspace = false,
 		},
 	},
 	{

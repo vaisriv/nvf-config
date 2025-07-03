@@ -38,11 +38,18 @@ return {
 					desc = "[-] Open directory view in floating window",
 					mode = { "n", "v" },
 				},
-				{
-					"<leader>q",
-					desc = "[Q]uit Oil",
-					mode = { "n", "v" },
-				},
+			})
+			vim.api.nvim_create_autocmd("Filetype", {
+				pattern = "oil",
+				callback = function()
+					require("which-key").add({
+						{
+							"<leader>q",
+							desc = "[Q]uit Oil",
+							mode = { "n", "v" },
+						},
+					})
+				end,
 			})
 		end,
 	},

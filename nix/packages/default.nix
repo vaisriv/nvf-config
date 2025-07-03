@@ -1,4 +1,3 @@
 {perSystem, ...}:
-perSystem.self.minimal
+perSystem.self.lua
 # perSystem.self.vai
-

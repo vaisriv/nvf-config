@@ -26,11 +26,11 @@ return {
 	-- 		vim.keymap.set("n", "<leader>mpd", fns.details_tags_toggle)
 	-- 	end,
 	-- },
-	{
-		"tadmccorkle/markdown.nvim",
-		ft = { "markdown" }, -- or 'event = "VeryLazy"'
-		opts = {
-			-- configuration here or empty for defaults
-		},
-	},
+	-- {
+	-- 	"tadmccorkle/markdown.nvim",
+	-- 	ft = { "markdown" }, -- or 'event = "VeryLazy"'
+	-- 	opts = {
+	-- 		-- configuration here or empty for defaults
+	-- 	},
+	-- },
 }

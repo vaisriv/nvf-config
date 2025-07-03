@@ -1,14 +1,25 @@
 return {
 	{
 		"quarto-dev/quarto-nvim",
+		ft = { "r", "rmd", "qmd", "quarto" },
 		dependencies = {
 			"jmbuhr/otter.nvim",
 			"nvim-treesitter/nvim-treesitter",
 		},
 		config = function()
+			-- quarto config
 			local quarto = require("quarto")
 			quarto.setup()
-			vim.keymap.set("n", "<leader>mp", quarto.quartoPreview, { silent = true, noremap = true })
+
+			-- which-key config
+			local wk = require("which-key")
+			wk.add({
+				{
+					"<leader>r",
+					group = "[R] Quarto",
+					{ "<leader>rp", quarto.quartoPreview, desc = "[P]review" },
+				},
+			})
 		end,
 	},
 	--[[ {
