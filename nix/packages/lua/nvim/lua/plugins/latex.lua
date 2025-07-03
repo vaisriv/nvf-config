@@ -9,7 +9,7 @@ return {
 		},
 		ft = { "tex", "markdown" },
 		opts = {
-			use_treesitter = true,
+			use_treesitter = false,
 			allow_on_markdown = true,
 		},
 		config = function()

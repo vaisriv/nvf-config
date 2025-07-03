@@ -67,7 +67,7 @@ return {
 		end, { desc = "[S]earch [/] in Open Files" })
 
 		vim.keymap.set("n", "<leader>sn", function()
-			builtin.find_files({ cwd = "$HOME/files/projects/nvf/.nix/packages/lua/nvim" })
+			builtin.find_files({ cwd = "$HOME/files/projects/nvf/nix/packages/lua/nvim" })
 		end, { desc = "[S]earch [N]eovim files" })
 	end,
 }
