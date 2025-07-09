@@ -2,6 +2,6 @@
     vim = {
         viAlias = false;
         vimAlias = false;
-        enableLuaLoader = true;
+        # enableLuaLoader = true;
     };
 }

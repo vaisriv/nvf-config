@@ -1,13 +1,9 @@
 {...}: {
     vim = {
-        lsp = {
-            enable = true;
-            formatOnSave = true;
-            trouble.enable = true;
-        };
-
         languages = {
             # config
+            enableDAP = false;
+            enableExtraDiagnostics = false;
             enableTreesitter = true;
             enableFormat = true;
 
