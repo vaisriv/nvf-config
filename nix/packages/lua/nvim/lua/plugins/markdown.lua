@@ -2,8 +2,8 @@
 
 return {
 	{
-		'MeanderingProgrammer/render-markdown.nvim',
-		dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		opts = {
@@ -12,8 +12,8 @@ return {
 			-- code blocks
 			code = {
 				sign = false,
-				style = 'full',
-				border = 'thick',
+				style = "full",
+				border = "thick",
 				left_pad = 2,
 				language_pad = 2,
 			},
@@ -22,36 +22,36 @@ return {
 			quote = { repeat_linebreak = true },
 			win_options = {
 				showbreak = {
-					default = '',
-					rendered = '  ',
+					default = "",
+					rendered = "  ",
 				},
 				breakindent = {
 					default = false,
 					rendered = true,
 				},
 				breakindentopt = {
-					default = '',
-					rendered = '',
+					default = "",
+					rendered = "",
 				},
 			},
 
 			-- checkboxes
 			checkbox = {
 				unchecked = {
-					highlight = 'RenderMarkdownH5',
+					highlight = "RenderMarkdownH5",
 				},
 				checked = {
-					highlight = 'RenderMarkdownH4',
+					highlight = "RenderMarkdownH4",
 				},
 				custom = {
 					todo = {
-						rendered = '◯ ',
-						highlight = 'RenderMarkdownH3',
+						rendered = "◯ ",
+						highlight = "RenderMarkdownH3",
 					},
 					important = {
-						raw = '[~]',
-						rendered = '󰓎 ',
-						highlight = 'RenderMarkdownH2',
+						raw = "[~]",
+						rendered = "󰓎 ",
+						highlight = "RenderMarkdownH2",
 					},
 				},
 			},
@@ -66,7 +66,7 @@ return {
 			-- latex
 			latex = {
 				enabled = true,
-				position = 'above',
+				position = "above",
 			},
 		},
 	},

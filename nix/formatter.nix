@@ -6,7 +6,7 @@
 inputs.treefmt-nix.lib.mkWrapper pkgs {
     projectRootFile = "flake.nix";
 
-    # nix fmt
+    # nix
     programs.deadnix.enable = true;
     programs.alejandra.enable = true;
     settings.formatter = {
@@ -17,4 +17,7 @@ inputs.treefmt-nix.lib.mkWrapper pkgs {
             ];
         };
     };
+
+    # lua
+    programs.stylua.enable = true;
 }
