@@ -32,6 +32,14 @@ return {
 			timeout = 5000,
 		})
 
+		require("mini.jump").setup({})
+
+		require("mini.jump2d").setup({
+			mappings = {
+				start_jumping = "s",
+			},
+		})
+
 		require("mini.starter").setup({
 			header = " ⟋|､\n(°､ ｡ 7\n |､  ~ヽ\n じしf_,)ノ\n",
 			footer = "",
