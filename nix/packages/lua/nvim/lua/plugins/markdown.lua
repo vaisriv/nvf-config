@@ -3,10 +3,14 @@
 return {
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
+		ft = "markdown",
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		opts = {
+			-- off by default
+			enabled = false,
+
 			completions = { lsp = { enabled = true } },
 
 			-- code blocks
@@ -69,5 +73,16 @@ return {
 				position = "above",
 			},
 		},
+		config = function()
+			-- which-key config
+			local wk = require("which-key")
+			wk.add({
+				{
+					"<leader>r",
+					group = "[R] Quarto",
+					{ "<leader>rm", "<cmd>RenderMarkdown toggle<CR>", desc = "[M]arkdown" },
+				},
+			})
+		end,
 	},
 }
