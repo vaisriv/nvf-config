@@ -2,85 +2,35 @@
 
 return {
 	{
-		"MeanderingProgrammer/render-markdown.nvim",
-		ft = "markdown",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-		---@module 'render-markdown'
-		---@type render.md.UserConfig
+		"OXY2DEV/markview.nvim",
+		lazy = false,
+		priority = 49,
+		ft = { "markdown", "qmd" },
 		opts = {
-			-- off by default
-			enabled = false,
-
-			completions = { lsp = { enabled = true } },
-
-			-- code blocks
-			code = {
-				sign = false,
-				style = "full",
-				border = "thick",
-				left_pad = 2,
-				language_pad = 2,
-			},
-
-			-- block quotes
-			quote = { repeat_linebreak = true },
-			win_options = {
-				showbreak = {
-					default = "",
-					rendered = "  ",
-				},
-				breakindent = {
-					default = false,
-					rendered = true,
-				},
-				breakindentopt = {
-					default = "",
-					rendered = "",
-				},
-			},
-
-			-- checkboxes
-			checkbox = {
-				unchecked = {
-					highlight = "RenderMarkdownH5",
-				},
-				checked = {
-					highlight = "RenderMarkdownH4",
-				},
-				custom = {
-					todo = {
-						rendered = "◯ ",
-						highlight = "RenderMarkdownH3",
-					},
-					important = {
-						raw = "[~]",
-						rendered = "󰓎 ",
-						highlight = "RenderMarkdownH2",
-					},
-				},
-			},
-
-			-- heading indent
-			heading = { border = true },
-			indent = {
-				enabled = true,
-				skip_level = 2,
-			},
-
-			-- latex
-			latex = {
-				enabled = true,
-				position = "above",
-			},
 		},
 		config = function()
+			-- markview config
+			local markview = require("markview")
+			local presets = require("markview.presets")
+			markview.setup({
+				preview = {
+					-- off by default
+					enable = false,
+				},
+				markdown = {
+					headings = presets.headings.marker,
+					horizontal_rules = presets.horizontal_rules.thick,
+					tables = presets.tables.single,
+				},
+			})
+			
 			-- which-key config
 			local wk = require("which-key")
 			wk.add({
 				{
 					"<leader>r",
 					group = "[R] Quarto",
-					{ "<leader>rm", "<cmd>RenderMarkdown toggle<CR>", desc = "[M]arkdown" },
+					{ "<leader>rm", "<cmd>Markview Toggle<CR>", desc = "[M]arkdown" },
 				},
 			})
 		end,
