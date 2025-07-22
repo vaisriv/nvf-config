@@ -23,6 +23,7 @@
         # nvf nix neovim module
         nvf = {
             url = "github:notashelf/nvf";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 
