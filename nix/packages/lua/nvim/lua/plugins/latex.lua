@@ -51,39 +51,6 @@ return {
 				condition = utils.pipe({ not_math }),
 				wordTrig = true,
 			})
-
-			-- MATH SNIPPETS
-			ls.add_snippets("tex", {
-				-- Subscript and Superscript
-				ls.parser.parse_snippet(
-					{ trig = "_", name = "Subscript", wordTrig = false },
-					"_{${1:${TM_SELECTED_TEXT}}}$0"
-				),
-				ls.parser.parse_snippet(
-					{ trig = "^", name = "Superscript", wordTrig = false },
-					"^{${1:${TM_SELECTED_TEXT}}}$0"
-				),
-
-				-- Auto Parenthesis/Brackets/Braces
-				ls.parser.parse_snippet(
-					{ trig = "()", name = "Parenthesis" },
-					"\\left(${1:${TM_SELECTED_TEXT}}\\right)$0"
-				),
-				ls.parser.parse_snippet(
-					{ trig = "[]", name = "Brackets" },
-					"\\left[${1:${TM_SELECTED_TEXT}}\\right]$0"
-				),
-				ls.parser.parse_snippet(
-					{ trig = "\\{}", name = "Braces" },
-					"\\left\\{${1:${TM_SELECTED_TEXT}}\\right\\}$0"
-				),
-			}, {
-				type = "autosnippets",
-				priority = 1,
-				condition = utils.pipe({ is_math }),
-				wordTrig = true,
-			})
-
 			-- GENERAL BINDINGS
 			ls.add_snippets("tex", {
 				-- Homework Custom Headers
@@ -121,8 +88,44 @@ return {
 				wordTrig = true,
 			})
 
+
+			-- MATH SNIPPETS
+			local math_snips = {
+				-- Subscript and Superscript
+				ls.parser.parse_snippet(
+					{ trig = "_", name = "Subscript", wordTrig = false },
+					"_{${1:${TM_SELECTED_TEXT}}}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "^", name = "Superscript", wordTrig = false },
+					"^{${1:${TM_SELECTED_TEXT}}}$0"
+				),
+
+				-- Auto Parenthesis/Brackets/Braces
+				ls.parser.parse_snippet(
+					{ trig = "()", name = "Parenthesis" },
+					"\\left(${1:${TM_SELECTED_TEXT}}\\right)$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "[]", name = "Brackets" },
+					"\\left[${1:${TM_SELECTED_TEXT}}\\right]$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "\\{}", name = "Braces" },
+					"\\left\\{${1:${TM_SELECTED_TEXT}}\\right\\}$0"
+				),
+			}
+			local math_snips_opts = {
+				type = "autosnippets",
+				priority = 1,
+				condition = utils.pipe({ is_math }),
+				wordTrig = true,
+			}
+			ls.add_snippets("tex", math_snips, math_snips_opts)
+			ls.add_snippets("markdown", math_snips, math_snips_opts)
+
 			-- MATH BINDINGS
-			ls.add_snippets("tex", {
+			local math_bindings = {
 				-- Fraction
 				ls.parser.parse_snippet(
 					{ trig = "frac", name = "Fractions", wordTrig = false },
@@ -208,12 +211,15 @@ return {
 					{ trig = "Prob", name = "Probability Shorthand", dscr = "Probability function" },
 					"\\Prob[${1:${TM_SELECTED_TEXT}}]$0"
 				),
-			}, {
+			}
+			local math_bindings_opts = {
 				type = "snippets",
 				priority = 1,
 				condition = utils.pipe({ is_math }),
 				wordTrig = true,
-			})
+			}
+			ls.add_snippets("tex", math_bindings, math_bindings_opts)
+			ls.add_snippets("markdown", math_bindings, math_bindings_opts)
 		end,
 	},
 	-- {
