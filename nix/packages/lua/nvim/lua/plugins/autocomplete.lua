@@ -101,7 +101,7 @@ return {
 				{
 					name = "latex_symbols",
 					option = {
-						strategy = 0, -- mixed
+						strategy = 2, -- latex
 					},
 				},
 			},
