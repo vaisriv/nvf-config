@@ -41,18 +41,27 @@ return {
 			local not_math = utils.with_opts(utils.not_math, true) -- true to use treesitter
 
 			-- GENERAL SNIPPETS
-			ls.add_snippets("tex", {
+			local general_snips_tex = {
 				-- Custom Inline-Math and Display-Math snippets to fit my formatting style
 				ls.parser.parse_snippet({ trig = "mk", name = "Math" }, "\\( ${1:${TM_SELECTED_TEXT}} \\)$0"),
 				ls.parser.parse_snippet({ trig = "dm", name = "Block Math" }, "\\[\n\t${1:${TM_SELECTED_TEXT}}\n\\]$0"),
-			}, {
+			}
+			local general_snips_md = {
+				-- Custom Inline-Math and Display-Math snippets to fit my formatting style
+				ls.parser.parse_snippet({ trig = "mk", name = "Math" }, "$${1:${TM_SELECTED_TEXT}}$$0"),
+				ls.parser.parse_snippet({ trig = "dm", name = "Block Math" }, "$$\n\t${1:${TM_SELECTED_TEXT}}\n  $$$0"),
+			}
+			local general_snips_opts = {
 				type = "autosnippets",
-				priority = 1,
+				priority = 10,
 				condition = utils.pipe({ not_math }),
 				wordTrig = true,
-			})
+			}
+			ls.add_snippets("tex", general_snips_tex, general_snips_opts)
+			ls.add_snippets("markdown", general_snips_md, general_snips_opts)
+
 			-- GENERAL BINDINGS
-			ls.add_snippets("tex", {
+			local general_bindings_tex = {
 				-- Homework Custom Headers
 				ls.parser.parse_snippet(
 					{ trig = "hwkProblem", name = "Homework Problem Autoformat" },
@@ -81,12 +90,18 @@ return {
 					{ trig = "``", name = "Inline Code Listing", type = "autosnippets" },
 					"\\lstinline[language=$1]{${2:${TM_SELECTED_TEXT}}}$0"
 				),
-			}, {
+			}
+			local general_bindings_md = {
+				ls.parser.parse_snippet({ trig = "wikilink", name = "WikiLink" }, "[[${1:${TM_SELECTED_TEXT}}]]$0"),
+			}
+			local general_bindings_opts = {
 				type = "snippets",
 				priority = 1,
 				condition = utils.pipe({ not_math }),
 				wordTrig = true,
-			})
+			}
+			ls.add_snippets("tex", general_bindings_tex, general_bindings_opts)
+			ls.add_snippets("markdown", general_bindings_md, general_bindings_opts)
 
 
 			-- MATH SNIPPETS
@@ -125,7 +140,7 @@ return {
 			ls.add_snippets("markdown", math_snips, math_snips_opts)
 
 			-- MATH BINDINGS
-			local math_bindings = {
+			local math_bindings_tex = {
 				-- Fraction
 				ls.parser.parse_snippet(
 					{ trig = "frac", name = "Fractions", wordTrig = false },
@@ -212,14 +227,125 @@ return {
 					"\\Prob[${1:${TM_SELECTED_TEXT}}]$0"
 				),
 			}
+			local math_bindings_md = {
+				-- Fraction
+				ls.parser.parse_snippet(
+					{ trig = "frac", name = "Fractions", wordTrig = false },
+					"\\frac{${1:${TM_SELECTED_TEXT}}}{$2}$0"
+				),
+
+				-- Overheads (vec, dot, etc)
+				ls.parser.parse_snippet(
+					{ trig = "vec", name = "Vector", dscr = "Overhead vector arrow" },
+					"\\vec{${1:${TM_SELECTED_TEXT}}}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "dot", name = "Newtonian Dot", dscr = "Overhead dot for Newtonian notation" },
+					"\\dot{${1:${TM_SELECTED_TEXT}}}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "hat", name = "Hat", dscr = "Overhead hat symbol" },
+					"\\hat{${1:${TM_SELECTED_TEXT}}}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "uvec", name = "Unit Vector", dscr = "Unit Vector" },
+					"\\bm{\\hat{${1:${TM_SELECTED_TEXT}}}}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "vect", name = "C/R Vector", dscr = "Column and Row Vectors" },
+					"\\crvector{${1:${TM_SELECTED_TEXT}}}$0"
+				),
+
+				-- Text+Bold+Functions in Math Mode
+				ls.parser.parse_snippet(
+					{ trig = "text", name = "Text in Math", dscr = "Inline text in math mode" },
+					"\\text{${1:${TM_SELECTED_TEXT}}}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "bm", name = "Bold Math", dscr = "Bold math" },
+					"\\bm{${1:${TM_SELECTED_TEXT}}}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "fn", name = "Function Shorthand", dscr = "Function" },
+					"\\fn{${1:${TM_SELECTED_TEXT}}}{$2}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "func", name = "Function Definition Shorthand", dscr = "Function Definition" },
+					"\\func{${1:${TM_SELECTED_TEXT}}}$0"
+				),
+
+				-- HW Custom Functions
+				ls.parser.parse_snippet(
+					{ trig = "wrt", name = "'With Respect To' Shorthand", dscr = "'With respect to'" },
+					"\\wrt $0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "st", name = "'Such That' Shorthand", dscr = "'Such that'" },
+					"\\st $0"
+				),
+
+				ls.parser.parse_snippet(
+					{ trig = "drv", name = "Derivative Shorthand", dscr = "Derivative" },
+					"\\drv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "ddrv", name = "Second Derivative Shorthand", dscr = "Second Derivative" },
+					"\\ddrv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "deriv", name = "Expansive Derivative Shorthand", dscr = "Expansive Derivative" },
+					"\\deriv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "dderiv", name = "Expansive Second Derivative Shorthand", dscr = "Expansive Second Derivative" },
+					"\\dderiv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "pdrv", name = "Partial Derivative Shorthand", dscr = "Partial Derivative" },
+					"\\pdrv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "pddrv", name = "Partial Second Derivative Shorthand", dscr = "Partial Second Derivative" },
+					"\\pddrv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "pderiv", name = "Expansive Partial Derivative Shorthand", dscr = "Expansive Partial Derivative" },
+					"\\pderiv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
+				),
+				ls.parser.parse_snippet(
+					{ trig = "pdderiv", name = "Expansive Partial Second Derivative Shorthand", dscr = "Expansive Partial Second Derivative" },
+					"\\pdderiv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
+				),
+
+				-- ls.parser.parse_snippet(
+				-- 	{ trig = "E", name = "Expectation Shorthand", dscr = "Expected Value function" },
+				-- 	"\\E[${1:${TM_SELECTED_TEXT}}]$0"
+				-- ),
+				-- ls.parser.parse_snippet(
+				-- 	{ trig = "Var", name = "Variance Shorthand", dscr = "Variance function" },
+				-- 	"\\Var[${1:${TM_SELECTED_TEXT}}]$0"
+				-- ),
+				-- ls.parser.parse_snippet(
+				-- 	{ trig = "Cov", name = "Covariance Shorthand", dscr = "Covariance function" },
+				-- 	"\\Cov[${1:${TM_SELECTED_TEXT}}]$0"
+				-- ),
+				-- ls.parser.parse_snippet(
+				-- 	{ trig = "Bias", name = "Bias Shorthand", dscr = "Bias function" },
+				-- 	"\\Bias[${1:${TM_SELECTED_TEXT}}]$0"
+				-- ),
+				-- ls.parser.parse_snippet(
+				-- 	{ trig = "Prob", name = "Probability Shorthand", dscr = "Probability function" },
+				-- 	"\\Prob[${1:${TM_SELECTED_TEXT}}]$0"
+				-- ),
+			}
 			local math_bindings_opts = {
 				type = "snippets",
 				priority = 1,
 				condition = utils.pipe({ is_math }),
 				wordTrig = true,
 			}
-			ls.add_snippets("tex", math_bindings, math_bindings_opts)
-			ls.add_snippets("markdown", math_bindings, math_bindings_opts)
+			ls.add_snippets("tex", math_bindings_tex, math_bindings_opts)
+			ls.add_snippets("markdown", math_bindings_md, math_bindings_opts)
 		end,
 	},
 	-- {
