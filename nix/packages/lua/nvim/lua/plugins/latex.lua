@@ -15,7 +15,8 @@ return {
 		config = function()
 			-- vimtex config
 			vim.g.vimtex_fold_enabled = false
-			vim.g.vimtex_view_method = "zathura"
+			-- vim.g.vimtex_view_method = "zathura"
+			vim.g.vimtex_view_general_viewer = "open"
 
 			-- which-key config
 			local wk = require("which-key")
