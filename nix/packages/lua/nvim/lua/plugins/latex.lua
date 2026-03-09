@@ -137,7 +137,7 @@ return {
 				wordTrig = true,
 			}
 			ls.add_snippets("tex", math_snips, math_snips_opts)
-			ls.add_snippets("markdown", math_snips, math_snips_opts)
+			-- ls.add_snippets("markdown", math_snips, math_snips_opts)
 
 			-- MATH BINDINGS
 			local math_bindings_tex = {
@@ -296,14 +296,11 @@ return {
 					{ trig = "deriv", name = "Expansive Derivative Shorthand", dscr = "Expansive Derivative" },
 					"\\deriv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
 				),
-				ls.parser.parse_snippet(
-					{
-						trig = "dderiv",
-						name = "Expansive Second Derivative Shorthand",
-						dscr = "Expansive Second Derivative",
-					},
-					"\\dderiv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
-				),
+				ls.parser.parse_snippet({
+					trig = "dderiv",
+					name = "Expansive Second Derivative Shorthand",
+					dscr = "Expansive Second Derivative",
+				}, "\\dderiv{${1:${TM_SELECTED_TEXT}}}{$2}$0"),
 				ls.parser.parse_snippet(
 					{ trig = "pdrv", name = "Partial Derivative Shorthand", dscr = "Partial Derivative" },
 					"\\pdrv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
@@ -312,22 +309,16 @@ return {
 					{ trig = "pddrv", name = "Partial Second Derivative Shorthand", dscr = "Partial Second Derivative" },
 					"\\pddrv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
 				),
-				ls.parser.parse_snippet(
-					{
-						trig = "pderiv",
-						name = "Expansive Partial Derivative Shorthand",
-						dscr = "Expansive Partial Derivative",
-					},
-					"\\pderiv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
-				),
-				ls.parser.parse_snippet(
-					{
-						trig = "pdderiv",
-						name = "Expansive Partial Second Derivative Shorthand",
-						dscr = "Expansive Partial Second Derivative",
-					},
-					"\\pdderiv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
-				),
+				ls.parser.parse_snippet({
+					trig = "pderiv",
+					name = "Expansive Partial Derivative Shorthand",
+					dscr = "Expansive Partial Derivative",
+				}, "\\pderiv{${1:${TM_SELECTED_TEXT}}}{$2}$0"),
+				ls.parser.parse_snippet({
+					trig = "pdderiv",
+					name = "Expansive Partial Second Derivative Shorthand",
+					dscr = "Expansive Partial Second Derivative",
+				}, "\\pdderiv{${1:${TM_SELECTED_TEXT}}}{$2}$0"),
 
 				-- ls.parser.parse_snippet(
 				-- 	{ trig = "E", name = "Expectation Shorthand", dscr = "Expected Value function" },
