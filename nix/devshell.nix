@@ -10,8 +10,8 @@ perSystem.devshell.mkShell {
         $(type -p menu &>/dev/null && menu)
     '';
 
-    commands = [];
-    packages = with pkgs; [];
+    commands = [ ];
+    packages = with pkgs; [ ];
 
-    env = [];
+    env = [ ];
 }

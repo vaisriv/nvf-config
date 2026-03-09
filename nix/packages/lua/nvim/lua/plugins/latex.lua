@@ -104,7 +104,6 @@ return {
 			ls.add_snippets("tex", general_bindings_tex, general_bindings_opts)
 			ls.add_snippets("markdown", general_bindings_md, general_bindings_opts)
 
-
 			-- MATH SNIPPETS
 			local math_snips = {
 				-- Subscript and Superscript
@@ -298,7 +297,11 @@ return {
 					"\\deriv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
 				),
 				ls.parser.parse_snippet(
-					{ trig = "dderiv", name = "Expansive Second Derivative Shorthand", dscr = "Expansive Second Derivative" },
+					{
+						trig = "dderiv",
+						name = "Expansive Second Derivative Shorthand",
+						dscr = "Expansive Second Derivative",
+					},
 					"\\dderiv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
 				),
 				ls.parser.parse_snippet(
@@ -310,11 +313,19 @@ return {
 					"\\pddrv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
 				),
 				ls.parser.parse_snippet(
-					{ trig = "pderiv", name = "Expansive Partial Derivative Shorthand", dscr = "Expansive Partial Derivative" },
+					{
+						trig = "pderiv",
+						name = "Expansive Partial Derivative Shorthand",
+						dscr = "Expansive Partial Derivative",
+					},
 					"\\pderiv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
 				),
 				ls.parser.parse_snippet(
-					{ trig = "pdderiv", name = "Expansive Partial Second Derivative Shorthand", dscr = "Expansive Partial Second Derivative" },
+					{
+						trig = "pdderiv",
+						name = "Expansive Partial Second Derivative Shorthand",
+						dscr = "Expansive Partial Second Derivative",
+					},
 					"\\pdderiv{${1:${TM_SELECTED_TEXT}}}{$2}$0"
 				),
 

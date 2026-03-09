@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
     imports = [
         ./indent-blankline.nix
         ./mini.nix

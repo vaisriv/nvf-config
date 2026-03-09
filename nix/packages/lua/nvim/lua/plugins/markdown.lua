@@ -6,8 +6,7 @@ return {
 		lazy = false,
 		priority = 49,
 		ft = { "markdown", "qmd" },
-		opts = {
-		},
+		opts = {},
 		config = function()
 			-- markview config
 			local markview = require("markview")
@@ -23,7 +22,7 @@ return {
 					tables = presets.tables.single,
 				},
 			})
-			
+
 			-- which-key config
 			local wk = require("which-key")
 			wk.add({

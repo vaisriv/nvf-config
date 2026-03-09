@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
     vim.theme = {
         enable = true;
         transparent = false;
