@@ -11,6 +11,7 @@
         ./keybinds.nix
         ./lsp.nix
         ./plugins
+        ./options.nix
         ./theme.nix
     ];
 }).neovim
