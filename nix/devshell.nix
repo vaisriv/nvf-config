@@ -11,7 +11,9 @@ perSystem.devshell.mkShell {
     '';
 
     commands = [ ];
-    packages = with pkgs; [ ];
+    packages = with pkgs; [
+        # nixd
+    ];
 
     env = [ ];
 }

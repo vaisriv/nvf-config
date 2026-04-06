@@ -1,3 +1,1 @@
-{ perSystem, ... }:
-perSystem.self.lua
-# perSystem.self.vai
+{ perSystem, ... }: perSystem.self.vai

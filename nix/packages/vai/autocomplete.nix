@@ -21,6 +21,7 @@
             sourcePlugins = {
                 emoji.enable = true;
                 ripgrep.enable = true;
+                spell.enable = true;
             };
         };
     };

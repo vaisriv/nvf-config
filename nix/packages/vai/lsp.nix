@@ -10,11 +10,22 @@
             # enableTreesitter = true;
 
             # languages
+            arduino.enable = true;
+            bash.enable = true;
+            clang.enable = true;
+            julia.enable = true;
             lua.enable = true;
-            nix = {
+            nix.enable = true;
+            python = {
                 enable = true;
-                lsp.servers = [ "nixd" ];
+                lsp.servers = [
+                    "ruff"
+                    "ty"
+                ];
             };
+            typst.enable = true;
         };
+
+        binds.whichKey.register."<leader>l" = "[L]SP";
     };
 }

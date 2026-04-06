@@ -9,7 +9,7 @@
         };
 
         keymaps = [
-            # helpful bindings
+            # selection helpers
             {
                 key = "<leader>a";
                 mode = [ "n" ];
@@ -22,8 +22,10 @@
                 mode = [ "n" ];
                 silent = true;
                 action = "<cmd>%y+<CR>";
-                desc = "[Y]ank entire buffer";
+                desc = "[Y]ank Entire Buffer";
             }
+
+            # buffer helpers
             {
                 key = "<leader>w";
                 mode = [ "n" ];
@@ -51,6 +53,45 @@
                 silent = true;
                 action = "<cmd>bnext<CR>";
                 desc = "[N]ext Buffer";
+            }
+
+            # window helpers
+            {
+                key = "<C-h>";
+                mode = [ "n" ];
+                silent = true;
+                action = "<C-w><C-h>";
+                desc = "[H] Focus Left Window";
+            }
+            {
+                key = "<C-j>";
+                mode = [ "n" ];
+                silent = true;
+                action = "<C-w><C-j>";
+                desc = "[j] Focus Lower Window";
+            }
+            {
+                key = "<C-k>";
+                mode = [ "n" ];
+                silent = true;
+                action = "<C-w><C-k>";
+                desc = "[k] Focus Upper Window";
+            }
+            {
+                key = "<C-l>";
+                mode = [ "n" ];
+                silent = true;
+                action = "<C-w><C-l>";
+                desc = "[l] Focus Right Window";
+            }
+
+            # clear search highlight when pressing <Esc>
+            {
+                key = "<Esc>";
+                mode = [ "n" ];
+                silent = true;
+                action = "<cmd>nohlsearch<CR>";
+                desc = "[Esc] Clear Search Highlight";
             }
         ];
     };
