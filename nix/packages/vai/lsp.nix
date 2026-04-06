@@ -14,7 +14,13 @@
             bash.enable = true;
             clang.enable = true;
             lua.enable = true;
-            nix.enable = true;
+            nix = {
+                enable = true;
+                lsp.servers = [
+                    "nil"
+                    "nixd"
+                ];
+            };
             python = {
                 enable = true;
                 lsp.servers = [
