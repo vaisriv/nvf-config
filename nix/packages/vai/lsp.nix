@@ -13,7 +13,6 @@
             arduino.enable = true;
             bash.enable = true;
             clang.enable = true;
-            julia.enable = true;
             lua.enable = true;
             nix.enable = true;
             python = {
