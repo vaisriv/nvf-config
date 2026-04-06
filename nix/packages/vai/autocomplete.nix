@@ -1,33 +1,27 @@
 { ... }:
 {
-    vim = {
-        autocomplete = {
-            enableSharedCmpSources = true;
-            blink-cmp = {
-                enable = true;
-                friendly-snippets.enable = true;
+    vim.autocomplete = {
+        # enableSharedCmpSources = true;
 
-                sourcePlugins = {
-                    emoji.enable = true;
-                    ripgrep.enable = true;
-                    spell.enable = true;
-                };
-            };
-        };
-        snippets = {
-            luasnip = {
-                enable = true;
-                setupOpts.enable_autosnippets = true;
-            };
-        };
-        spellcheck = {
+        blink-cmp = {
             enable = true;
-            ignoredFiletypes = [
-                "gitignore"
-                "gitcommit"
-            ];
-            languages = [ "en" ];
-            programmingWordlist.enable = true;
+            friendly-snippets.enable = true;
+
+            mappings = {
+                close = "<C-e>";
+                complete = "<C-t>";
+                # confirm = "<C-y>";
+                confirm = "<C-space>";
+                next = "<C-n>";
+                previous = "<C-p>";
+                scrollDocsDown = "<C-f>";
+                scrollDocsUp = "<C-b>";
+            };
+
+            sourcePlugins = {
+                emoji.enable = true;
+                ripgrep.enable = true;
+            };
         };
     };
 }

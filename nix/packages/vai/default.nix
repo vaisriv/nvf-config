@@ -6,11 +6,11 @@
 (inputs.nvf.lib.neovimConfiguration {
     inherit pkgs;
     modules = [
-        ./autocommands.nix
         ./autocomplete.nix
         ./config.nix
-        ./keymaps.nix
+        ./keybinds.nix
         ./lsp.nix
-        ./plugins.nix
+        ./plugins
+        ./theme.nix
     ];
 }).neovim
