@@ -35,6 +35,5 @@
             enable = true;
             registers = "unnamedplus";
         };
-        globals.clipboard = "osc52";
     };
 }
