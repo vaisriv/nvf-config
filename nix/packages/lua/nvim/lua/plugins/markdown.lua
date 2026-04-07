@@ -36,7 +36,9 @@ return {
 	},
 	{
 		"davidmh/mdx.nvim",
-		config = true,
+		config = function()
+			return true
+		end,
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 }
