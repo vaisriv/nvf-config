@@ -7,7 +7,7 @@
 
         options = {
             autoindent = true;
-            smartindent = true;
+            smartindent = false;
             breakindent = true;
 
             shiftround = true;

@@ -10,6 +10,7 @@
         ./sleuth.nix
         ./telescope.nix
         ./todo.nix
+        ./treesitter.nix
         ./undotree.nix
     ];
 }

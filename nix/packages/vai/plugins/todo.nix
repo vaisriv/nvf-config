@@ -7,6 +7,6 @@
                 signs = false;
             };
         };
-        binds.whichKey.register."<leader>t" = "[T]odos";
+        binds.whichKey.register."<leader>td" = "[T]o[D]os";
     };
 }

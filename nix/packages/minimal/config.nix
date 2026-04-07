@@ -3,11 +3,10 @@
     vim = {
         viAlias = false;
         vimAlias = false;
-        # enableLuaLoader = true;
 
         options = {
             autoindent = true;
-            smartindent = true;
+            smartindent = false;
             breakindent = true;
 
             shiftround = true;

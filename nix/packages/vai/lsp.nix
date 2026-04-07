@@ -2,12 +2,12 @@
 {
     vim = {
         lsp.enable = true;
+        binds.whichKey.register."<leader>l" = "[L]SP";
 
         languages = {
             # config
             enableDAP = false;
             enableExtraDiagnostics = false;
-            # enableTreesitter = true;
 
             # languages
             arduino.enable = true;
@@ -30,7 +30,5 @@
             };
             typst.enable = true;
         };
-
-        binds.whichKey.register."<leader>l" = "[L]SP";
     };
 }

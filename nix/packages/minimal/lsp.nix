@@ -7,7 +7,6 @@
             # config
             enableDAP = false;
             enableExtraDiagnostics = false;
-            # enableTreesitter = true;
 
             # languages
             lua.enable = true;
