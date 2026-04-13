@@ -3,7 +3,7 @@
     vim = {
         treesitter = {
             enable = true;
-            fold = true;
+            fold = false;
             highlight.enable = true;
             indent.enable = false;
         };
