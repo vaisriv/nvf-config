@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
     vim = {
         telescope = {
@@ -19,6 +19,9 @@
                 ];
             }
         ];
-        binds.whichKey.register."<leader>f" = "[F]ind with Telescope";
+        binds.whichKey.register = {
+            "<leader>f" = "[F]ind with Telescope";
+            "<leader>fm" = lib.mkForce null;
+        };
     };
 }
