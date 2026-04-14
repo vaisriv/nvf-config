@@ -9,6 +9,5 @@
 
             addDefaultGrammars = true;
         };
-        # binds.whichKey.register."<leader>ts" = "[T]ree[S]itter";
     };
 }
