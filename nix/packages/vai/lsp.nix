@@ -14,6 +14,7 @@
             bash.enable = true;
             clang.enable = true;
             lua.enable = true;
+            markdown.enable = true;
             nix = {
                 enable = true;
                 lsp.servers = [
