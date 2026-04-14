@@ -1,20 +1,18 @@
 { lib, ... }:
 {
     vim = {
-        utility = {
-            oil-nvim = {
-                enable = true;
+        utility.oil-nvim = {
+            enable = true;
 
-                gitStatus.enable = true;
-                setupOpts = {
-                    columns = [ "icon" ];
-                    keymaps = {
-                        "<leader>q" = "actions.close";
-                        "<M-CR>" = "actions.select_split";
-                    };
-                    view_options = {
-                        show_hidden = true;
-                    };
+            gitStatus.enable = true;
+            setupOpts = {
+                columns = [ "icon" ];
+                keymaps = {
+                    "<leader>q" = "actions.close";
+                    "<M-CR>" = "actions.select_split";
+                };
+                view_options = {
+                    show_hidden = true;
                 };
             };
         };
