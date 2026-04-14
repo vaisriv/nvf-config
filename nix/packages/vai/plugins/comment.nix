@@ -18,6 +18,10 @@
                 extra = true;
             };
         };
-        binds.whichKey.register."<leader>c" = "[C]omment";
+        binds.whichKey.register = {
+            "<leader>c" = "[C]omment";
+            "<leader>cc" = "Toggle [C]omment on [C]urrent Line";
+            "<leader>cb" = "Toggle [C]omment on [B]lock";
+        };
     };
 }
