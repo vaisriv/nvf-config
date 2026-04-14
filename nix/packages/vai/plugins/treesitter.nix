@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
     vim = {
         treesitter = {
@@ -8,6 +8,7 @@
             indent.enable = false;
 
             addDefaultGrammars = true;
+            grammars = pkgs.vimPlugins.nvim-treesitter.allGrammars;
         };
     };
 }

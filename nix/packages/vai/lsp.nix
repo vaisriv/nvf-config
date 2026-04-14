@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
     vim = {
         lsp.enable = true;
@@ -8,6 +8,7 @@
             # config
             enableDAP = false;
             enableExtraDiagnostics = false;
+            enableTreesitter = true;
 
             # languages
             arduino.enable = true;
@@ -17,10 +18,7 @@
             markdown.enable = true;
             nix = {
                 enable = true;
-                lsp.servers = [
-                    "nil"
-                    "nixd"
-                ];
+                lsp.servers = [ "nixd" ];
             };
             python = {
                 enable = true;
@@ -29,6 +27,7 @@
                     "ty"
                 ];
             };
+            tex.enable = true;
             typst.enable = true;
         };
     };
