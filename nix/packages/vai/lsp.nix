@@ -1,7 +1,23 @@
 { pkgs, ... }:
 {
     vim = {
-        lsp.enable = true;
+        lsp = {
+            enable = true;
+            presets = {
+                # nix
+                nixd.enable = true;
+
+                # python
+                ruff.enable = true;
+                ty.enable = true;
+
+                # tex
+                texlab.enable = true;
+
+                # typst
+                tinymist.enable = true;
+            };
+        };
         binds.whichKey.register."<leader>l" = "[L]SP";
 
         languages = {
