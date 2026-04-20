@@ -6,10 +6,16 @@
         nixpkgs.url = "github:nixos/nixpkgs/release-25.11";
         # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+        # supported systems
+        systems.url = "github:nix-systems/default";
+
         # flake tools (thanks numtide)
         blueprint = {
             url = "github:numtide/blueprint";
-            inputs.nixpkgs.follows = "nixpkgs";
+            inputs = {
+                nixpkgs.follows = "nixpkgs";
+                systems.follows = "systems";
+            };
         };
         devshell = {
             url = "github:numtide/devshell";
@@ -20,10 +26,13 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        # nvf nix neovim module
+        # nvf nix+neovim module
         nvf = {
             url = "github:notashelf/nvf";
-            inputs.nixpkgs.follows = "nixpkgs";
+            inputs = {
+                nixpkgs.follows = "nixpkgs";
+                systems.follows = "systems";
+            };
         };
     };
 
